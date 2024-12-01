@@ -34,11 +34,18 @@
             tbLoanID = new TextBox();
             label1 = new Label();
             btnSelectLoan = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnViewLoan = new Button();
+            label3 = new Label();
+            dtpPaymentDate = new DateTimePicker();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(172, 159);
+            btnCreate.FlatStyle = FlatStyle.Flat;
+            btnCreate.ForeColor = Color.White;
+            btnCreate.Location = new Point(257, 232);
             btnCreate.Margin = new Padding(4, 3, 4, 3);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(115, 43);
@@ -49,7 +56,7 @@
             // 
             // tbPaymentAmount
             // 
-            tbPaymentAmount.Location = new Point(14, 106);
+            tbPaymentAmount.Location = new Point(14, 109);
             tbPaymentAmount.Margin = new Padding(4, 3, 4, 3);
             tbPaymentAmount.Name = "tbPaymentAmount";
             tbPaymentAmount.Size = new Size(185, 23);
@@ -58,7 +65,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(14, 87);
+            label2.Location = new Point(14, 91);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(109, 15);
@@ -67,10 +74,10 @@
             // 
             // tbLoanID
             // 
+            tbLoanID.Enabled = false;
             tbLoanID.Location = new Point(14, 29);
             tbLoanID.Margin = new Padding(4, 3, 4, 3);
             tbLoanID.Name = "tbLoanID";
-            tbLoanID.ReadOnly = true;
             tbLoanID.Size = new Size(185, 23);
             tbLoanID.TabIndex = 48;
             // 
@@ -86,22 +93,66 @@
             // 
             // btnSelectLoan
             // 
-            btnSelectLoan.Location = new Point(14, 58);
+            btnSelectLoan.AutoSize = true;
+            btnSelectLoan.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnSelectLoan.Location = new Point(4, 2);
             btnSelectLoan.Margin = new Padding(4, 3, 4, 3);
             btnSelectLoan.Name = "btnSelectLoan";
-            btnSelectLoan.Size = new Size(185, 26);
+            btnSelectLoan.Size = new Size(48, 25);
             btnSelectLoan.TabIndex = 53;
-            btnSelectLoan.Text = "Select Loan";
+            btnSelectLoan.Text = "Select";
             btnSelectLoan.UseVisualStyleBackColor = true;
             btnSelectLoan.Click += btnSelectLoan_Click;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(btnSelectLoan);
+            flowLayoutPanel1.Controls.Add(btnViewLoan);
+            flowLayoutPanel1.FlowDirection = FlowDirection.BottomUp;
+            flowLayoutPanel1.Location = new Point(14, 58);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(185, 30);
+            flowLayoutPanel1.TabIndex = 54;
+            // 
+            // btnViewLoan
+            // 
+            btnViewLoan.AutoSize = true;
+            btnViewLoan.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnViewLoan.Location = new Point(60, 2);
+            btnViewLoan.Margin = new Padding(4, 3, 4, 3);
+            btnViewLoan.Name = "btnViewLoan";
+            btnViewLoan.Size = new Size(42, 25);
+            btnViewLoan.TabIndex = 54;
+            btnViewLoan.Text = "View";
+            btnViewLoan.UseVisualStyleBackColor = true;
+            btnViewLoan.Click += btnViewLoan_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(14, 135);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(89, 15);
+            label3.TabIndex = 55;
+            label3.Text = "Payment Date *";
+            // 
+            // dtpPaymentDate
+            // 
+            dtpPaymentDate.Location = new Point(14, 153);
+            dtpPaymentDate.Name = "dtpPaymentDate";
+            dtpPaymentDate.Size = new Size(185, 23);
+            dtpPaymentDate.TabIndex = 56;
             // 
             // FormPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(192, 255, 192);
-            ClientSize = new Size(296, 215);
-            Controls.Add(btnSelectLoan);
+            BackColor = Color.DarkGoldenrod;
+            ClientSize = new Size(385, 287);
+            Controls.Add(dtpPaymentDate);
+            Controls.Add(label3);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(btnCreate);
             Controls.Add(tbPaymentAmount);
             Controls.Add(label2);
@@ -111,6 +162,9 @@
             Name = "FormPayment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Payment";
+            Load += FormPayment_Load;
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,5 +176,9 @@
         private System.Windows.Forms.TextBox tbLoanID;
         private System.Windows.Forms.Label label1;
         private Button btnSelectLoan;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button btnViewLoan;
+        private Label label3;
+        private DateTimePicker dtpPaymentDate;
     }
 }

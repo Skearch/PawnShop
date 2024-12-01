@@ -49,6 +49,7 @@
             tbAccessCode.PasswordChar = '*';
             tbAccessCode.Size = new Size(208, 31);
             tbAccessCode.TabIndex = 1;
+            tbAccessCode.Text = "12345";
             // 
             // label2
             // 
@@ -130,6 +131,7 @@
             Controls.Add(label3);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Margin = new Padding(4, 3, 4, 3);
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;

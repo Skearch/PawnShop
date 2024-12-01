@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace PawnShop
+﻿namespace PawnShop
 {
     public partial class FormSelector : Form
     {
@@ -28,13 +18,20 @@ namespace PawnShop
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if (dgvItems.SelectedRows.Count < 0)
-                throw new Exception("Select an item.");
+            try
+            {
+                if (dgvItems.SelectedRows.Count < 0)
+                    throw new Exception("Select an item.");
 
-            DataGridViewRow selectedRow = dgvItems.SelectedRows[0];
-            itemId = Convert.ToInt32(selectedRow.Cells[0].Value);
+                DataGridViewRow selectedRow = dgvItems.SelectedRows[0];
+                itemId = Convert.ToInt32(selectedRow.Cells[0].Value);
 
-            this.Close();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

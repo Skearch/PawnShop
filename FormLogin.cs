@@ -1,4 +1,5 @@
-﻿using PawnShop.Context;
+﻿using Microsoft.Data.SqlClient;
+using PawnShop.Context;
 
 namespace PawnShop
 {
@@ -35,8 +36,15 @@ namespace PawnShop
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            using (var databaseContext = new PawnShopContext())
-                databaseContext.Database.EnsureCreated();
+            try
+            {
+                using (var databaseContext = new PawnShopContext())
+                    databaseContext.Database.EnsureCreated();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

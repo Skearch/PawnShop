@@ -172,3 +172,4 @@ D:\Coding Project\PawnShop\obj\Debug\net8.0-windows\PawnShop.pdb
 D:\Coding Project\PawnShop\obj\Debug\net8.0-windows\PawnShop.genruntimeconfig.cache
 D:\Coding Project\PawnShop\obj\Debug\net8.0-windows\ref\PawnShop.dll
 D:\Coding Project\PawnShop\obj\Debug\net8.0-windows\PawnShop.FormSelector.resources
+D:\Coding Project\PawnShop\obj\Debug\net8.0-windows\PawnShop.sourcelink.json

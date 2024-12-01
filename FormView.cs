@@ -1,11 +1,8 @@
 ﻿using PawnShop.Context;
 using PawnShop.Entities;
+using PawnShop.Enums;
 using PawnShop.Services;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Windows.Forms;
 
 namespace PawnShop
 {
@@ -67,8 +64,15 @@ namespace PawnShop
 
         private void btnCustomerCreate_Click(object sender, EventArgs e)
         {
-            FormCustomer formCustomer = new FormCustomer();
-            formCustomer.Show();
+            try
+            {
+                FormCustomer formCustomer = new FormCustomer(null, FormMode.Create);
+                formCustomer.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCustomerReload_Click(object sender, EventArgs e)
@@ -101,7 +105,17 @@ namespace PawnShop
             }
         }
 
-        private void btnLoanReload_Click(object sender, EventArgs e) => Reload();
+        private void btnLoanReload_Click(object sender, EventArgs e) 
+        {
+            try
+            {
+                Reload();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
 
         private void btnLoanDelete_Click(object sender, EventArgs e)
         {
@@ -119,7 +133,17 @@ namespace PawnShop
             }
         }
 
-        private void btnItemReload_Click(object sender, EventArgs e) => Reload();
+        private void btnItemReload_Click(object sender, EventArgs e) 
+        {
+            try
+            {
+                Reload();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
 
         private void btnItemDelete_Click(object sender, EventArgs e)
         {
@@ -139,11 +163,28 @@ namespace PawnShop
 
         private void btnLoanCreate_Click(object sender, EventArgs e)
         {
-            FormLoan formLoan = new FormLoan();
-            formLoan.Show();
+            try
+            {
+                FormLoan formLoan = new FormLoan(null, FormMode.Create);
+                formLoan.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnPaymentReload_Click(object sender, EventArgs e) => Reload();
+        private void btnPaymentReload_Click(object sender, EventArgs e) 
+        {
+            try
+            {
+                Reload();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
 
         private void btnPaymentDelete_Click(object sender, EventArgs e)
         {
@@ -163,14 +204,158 @@ namespace PawnShop
 
         private void btnPaymentCreate_Click(object sender, EventArgs e)
         {
-            FormPayment formPayment = new FormPayment();
-            formPayment.Show();
+            try
+            {
+                FormPayment formPayment = new FormPayment(null, FormMode.Create);
+                formPayment.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnItemCreate_Click(object sender, EventArgs e)
         {
-            FormItem formItem = new FormItem();
-            formItem.Show();
+            try
+            {
+                FormItem formItem = new FormItem(null, FormMode.Create);
+                formItem.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCustomerView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedID = GetSelectedCustomerId();
+                var customerService = new CustomerService(new PawnShopContext());
+                var customer = customerService.GetCustomerByID(selectedID);
+                var formCustomer = new FormCustomer(customer, FormMode.View);
+                formCustomer.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnItemView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedID = GetSelectedItemId();
+                var itemService = new ItemService(new PawnShopContext());
+                var item = itemService.GetItemById(selectedID);
+                var formItem = new FormItem(item, FormMode.View);
+                formItem.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLoanView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedID = GetSelectedLoanId();
+                var loanService = new LoanService(new PawnShopContext());
+                var loan = loanService.GetLoanById(selectedID);
+                var formLoan = new FormLoan(loan, FormMode.View);
+                formLoan.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPaymentView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedID = GetSelectedPaymentId();
+                var paymentService = new PaymentService(new PawnShopContext());
+                var payment = paymentService.GetPaymentsById(selectedID);
+                var formPayment = new FormPayment(payment, FormMode.View);
+                formPayment.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FormView_FormClosing(object sender, FormClosingEventArgs e) => Environment.Exit(0);
+
+        private void btnCustomerUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedID = GetSelectedCustomerId();
+                var customerService = new CustomerService(new PawnShopContext());
+                var customer = customerService.GetCustomerByID(selectedID);
+                var formCustomer = new FormCustomer(customer, FormMode.Edit);
+                formCustomer.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnItemUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedID = GetSelectedItemId();
+                var itemService = new ItemService(new PawnShopContext());
+                var item = itemService.GetItemById(selectedID);
+                var formItem = new FormItem(item, FormMode.Edit);
+                formItem.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLoanUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedID = GetSelectedLoanId();
+                var loanService = new LoanService(new PawnShopContext());
+                var loan = loanService.GetLoanById(selectedID);
+                var formLoan = new FormLoan(loan, FormMode.Edit);
+                formLoan.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPaymentUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedID = GetSelectedPaymentId();
+                var paymentService = new PaymentService(new PawnShopContext());
+                var payment = paymentService.GetPaymentsById(selectedID);
+                var formPayment = new FormPayment(payment, FormMode.Edit);
+                formPayment.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

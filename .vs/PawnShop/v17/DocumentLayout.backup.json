@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Coding Project\\PawnShop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|d:\\coding project\\pawnshop\\formloan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|solutionrelative:formloan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|d:\\coding project\\pawnshop\\formloan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|solutionrelative:formloan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormLoan.cs [Design]",
+              "DocumentMoniker": "D:\\Coding Project\\PawnShop\\FormLoan.cs",
+              "RelativeDocumentMoniker": "FormLoan.cs",
+              "ToolTip": "D:\\Coding Project\\PawnShop\\FormLoan.cs [Design]",
+              "RelativeToolTip": "FormLoan.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:03:21.271Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormLoan.cs",
+              "DocumentMoniker": "D:\\Coding Project\\PawnShop\\FormLoan.cs",
+              "RelativeDocumentMoniker": "FormLoan.cs",
+              "ToolTip": "D:\\Coding Project\\PawnShop\\FormLoan.cs",
+              "RelativeToolTip": "FormLoan.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAADwv2cAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T15:04:53.008Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

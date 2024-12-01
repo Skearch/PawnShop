@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PawnShop.Context;
+﻿using PawnShop.Context;
 using PawnShop.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using PawnShop.Enums;
 
 namespace PawnShop.Services
 {
@@ -16,60 +13,49 @@ namespace PawnShop.Services
             _context = context;
         }
 
-        public void CreateItem(int customerId, string itemName, string description, decimal estimatedValue, DateTime pawnDate)
+        public void CreateItem(Item item)
         {
-            var item = new Item
-            {
-                CustomerID = customerId,
-                ItemName = itemName,
-                Description = description,
-                EstimatedValue = estimatedValue,
-                PawnDate = pawnDate
-            };
-
             _context.Items.Add(item);
             _context.SaveChanges();
         }
 
         public List<Item> GetAllItems()
         {
-            return _context.Items.Include(i => i.Customer).ToList();
+            return _context.Items.ToList();
         }
 
         public Item GetItemById(int itemId)
         {
-            return _context.Items.Include(i => i.Customer).FirstOrDefault(i => i.ItemID == itemId);
+            return _context.Items.FirstOrDefault(i => i.ItemID == itemId);
         }
 
-        public void UpdateItem(int itemId, string itemName, string description, decimal estimatedValue, DateTime pawnDate)
+        public int GetCustomerIDByItemID(int itemId)
         {
-            var item = _context.Items.Find(itemId);
-            if (item != null)
-            {
-                item.ItemName = itemName;
-                item.Description = description;
-                item.EstimatedValue = estimatedValue;
-                item.PawnDate = pawnDate;
-                _context.SaveChanges();
-            }
-            else
-            {
-                throw new ArgumentException("Item not found.");
-            }
+            return _context.Items.FirstOrDefault(i => i.ItemID == itemId).CustomerID;
+        }
+
+        public void UpdateRecord(Item item)
+        {
+            _context.Items.Update(item);
+            _context.SaveChanges();
         }
 
         public void DeleteItem(int itemId)
         {
             var item = _context.Items.Find(itemId);
-            if (item != null)
-            {
-                _context.Items.Remove(item);
-                _context.SaveChanges();
-            }
-            else
-            {
+            if (item == null)
                 throw new ArgumentException("Item not found.");
-            }
+
+            var other = _context.Others.Find(item.OtherID);
+            if (other != null)
+                _context.Others.Remove(other);
+
+            var jewelry = _context.Jewelries.Find(item.JewelryID);
+            if (jewelry != null)
+                _context.Jewelries.Remove(jewelry);
+
+            _context.Items.Remove(item);
+            _context.SaveChanges();
         }
     }
 }

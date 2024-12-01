@@ -35,10 +35,13 @@
             // 
             // btnSelect
             // 
-            btnSelect.Location = new Point(167, 425);
+            btnSelect.Dock = DockStyle.Fill;
+            btnSelect.FlatStyle = FlatStyle.Flat;
+            btnSelect.ForeColor = Color.White;
+            btnSelect.Location = new Point(0, 419);
             btnSelect.Margin = new Padding(4, 3, 4, 3);
             btnSelect.Name = "btnSelect";
-            btnSelect.Size = new Size(309, 30);
+            btnSelect.Size = new Size(533, 48);
             btnSelect.TabIndex = 53;
             btnSelect.Text = "Select";
             btnSelect.UseVisualStyleBackColor = true;
@@ -52,7 +55,7 @@
             dgvItems.AllowUserToResizeRows = false;
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvItems.BackgroundColor = Color.FromArgb(255, 255, 128);
+            dgvItems.BackgroundColor = Color.Goldenrod;
             dgvItems.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItems.Dock = DockStyle.Top;
@@ -67,17 +70,18 @@
             dgvItems.ShowCellToolTips = false;
             dgvItems.ShowEditingIcon = false;
             dgvItems.ShowRowErrors = false;
-            dgvItems.Size = new Size(690, 419);
+            dgvItems.Size = new Size(533, 419);
             dgvItems.TabIndex = 54;
             // 
             // FormSelector
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Goldenrod;
-            ClientSize = new Size(690, 467);
-            Controls.Add(dgvItems);
+            BackColor = Color.DarkGoldenrod;
+            ClientSize = new Size(533, 467);
             Controls.Add(btnSelect);
+            Controls.Add(dgvItems);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "FormSelector";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Select an Item!";

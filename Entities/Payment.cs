@@ -19,6 +19,6 @@ namespace PawnShop.Entities
         [Required]
         public DateTime PaymentDate { get; set; }
 
-        public virtual Loan Loan { get; set; }
+        public Loan Loan { get; set; }
     }
 }

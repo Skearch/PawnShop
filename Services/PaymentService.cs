@@ -1,8 +1,5 @@
 ﻿using PawnShop.Context;
 using PawnShop.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace PawnShop.Services
 {
@@ -15,15 +12,8 @@ namespace PawnShop.Services
             _context = context;
         }
 
-        public void CreatePayment(int loanId, decimal paymentAmount, DateTime paymentDate)
+        public void CreatePayment(Payment payment)
         {
-            var payment = new Payment
-            {
-                LoanID = loanId,
-                PaymentAmount = paymentAmount,
-                PaymentDate = paymentDate
-            };
-
             _context.Payments.Add(payment);
             _context.SaveChanges();
         }
@@ -38,14 +28,25 @@ namespace PawnShop.Services
             return _context.Payments.Where(p => p.LoanID == loanId).ToList();
         }
 
+        public Payment GetPaymentsById(int PaymentID)
+        {
+            return _context.Payments.Find(PaymentID);
+        }
+
+        public void UpdateRecord(Payment payment)
+        {
+            _context.Payments.Update(payment);
+            _context.SaveChanges();
+        }
+
         public void DeletePayment(int paymentId)
         {
             var payment = _context.Payments.Find(paymentId);
-            if (payment != null)
-            {
-                _context.Payments.Remove(payment);
-                _context.SaveChanges();
-            }
+            if (payment ==null)
+                throw new Exception("Payment not found.");
+
+            _context.Payments.Remove(payment);
+            _context.SaveChanges();
         }
     }
 }

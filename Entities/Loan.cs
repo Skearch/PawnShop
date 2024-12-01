@@ -1,5 +1,4 @@
-﻿using PawnShop.Enums;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,10 +14,17 @@ namespace PawnShop.Entities
         public int ItemID { get; set; }
 
         [Required]
+        [ForeignKey("Customer")]
+        public int CustomerID { get; set; }
+
+        [Required]
         public decimal LoanAmount { get; set; }
 
         [Required]
-        public decimal InterestRate { get; set; }
+        public decimal ProcessingFee { get; set; }
+
+        [Required]
+        public decimal Interest { get; set; }
 
         [Required]
         public DateTime LoanDate { get; set; }
@@ -26,10 +32,9 @@ namespace PawnShop.Entities
         [Required]
         public DateTime DueDate { get; set; }
 
-        [Required]
-        public LoanStatus Status { get; set; }
+        public DateTime? RepaymentDate { get; set; }
 
-        public virtual Item Item { get; set; }
+        public Item Item { get; set; }
+        public Customer Customer { get; set; }
     }
 }
-

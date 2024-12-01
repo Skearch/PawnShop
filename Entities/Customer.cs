@@ -1,10 +1,6 @@
-﻿using System;
+﻿using PawnShop.Enums;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.ComponentModel.DataAnnotations;
 
 namespace PawnShop.Entities
@@ -19,7 +15,7 @@ namespace PawnShop.Entities
         public string FirstName { get; set; }
 
         [StringLength(100)]
-        public string MiddleName { get; set; }
+        public string? MiddleName { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -36,5 +32,15 @@ namespace PawnShop.Entities
         [Required]
         [StringLength(100)]
         public string PhoneNumber { get; set; }
+
+        [Required]
+        public IdentificationType IdentificationType { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string IdentificationNumber { get; set; }
+
+        public ICollection<Item> Items { get; set; }
+        public ICollection<Loan> Loans { get; set; }
     }
 }

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using PawnShop.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PawnShop.Entities
 {
+    [Index(nameof(ItemName), IsUnique = true)]
     public class Item
     {
         [Key]
@@ -18,18 +17,35 @@ namespace PawnShop.Entities
         public int CustomerID { get; set; }
 
         [Required]
+        [ForeignKey("Other")]
+        public int OtherID { get; set; }
+
+        [Required]
+        [ForeignKey("Jewelry")]
+        public int JewelryID { get; set; }
+
+        [Required]
+        public ItemType ItemType { get; set; }
+
+        [Required]
         [StringLength(100)]
         public string ItemName { get; set; }
 
-        [StringLength(255)]
-        public string Description { get; set; }
-
         [Required]
-        public decimal EstimatedValue { get; set; }
+        public decimal ItemValue { get; set; }
 
         [Required]
         public DateTime PawnDate { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        [Required]
+        public bool IsSold { get; set; }
+
+        [Required]
+        public bool IsRedeemed { get; set; }
+
+        public Customer Customer { get; set; }
+        public Other Other { get; set; }
+        public Jewelry Jewelry { get; set; }
+        public Loan Loan { get; set; }
     }
 }

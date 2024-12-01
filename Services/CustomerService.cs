@@ -1,8 +1,5 @@
 ﻿using PawnShop.Context;
 using PawnShop.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace PawnShop.Services
 {
@@ -15,25 +12,26 @@ namespace PawnShop.Services
             _context = context;
         }
 
-        public void CreateRecord(string firstName, string middleName, string lastName, string address, string email, string phoneNumber)
+        public void CreateRecord(Customer NewCustomer)
         {
-            var customer = new Customer
-            {
-                FirstName = firstName,
-                MiddleName = middleName,
-                LastName = lastName,
-                Address = address,
-                Email = email,
-                PhoneNumber = phoneNumber
-            };
+            _context.Customers.Add(NewCustomer);
+            _context.SaveChanges();
+        }
 
-            _context.Customers.Add(customer);
+        public void UpdateRecord(Customer customer)
+        {
+            _context.Customers.Update(customer);
             _context.SaveChanges();
         }
 
         public List<Customer> GetAllCustomers()
         {
             return _context.Customers.ToList();
+        }
+
+        public Customer GetCustomerByID(int CustomerID)
+        {
+            return _context.Customers.Find(CustomerID);
         }
 
         public void DeleteRecordById(int customerId)
