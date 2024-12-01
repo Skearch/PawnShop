@@ -46,20 +46,46 @@ namespace PawnShop
             var pawnShopContext = new PawnShopContext();
 
             var customerService = new CustomerService(pawnShopContext);
-            List<Customer> customers = customerService.GetAllCustomers();
-            dgvCustomers.DataSource = customers;
+            var customers = customerService.GetAllCustomers();
+            dgvCustomers.DataSource = customers.Select(s => new
+            {
+                s.CustomerID,
+                FullName = string.IsNullOrEmpty(s.MiddleName) ? $"{s.FirstName} {s.LastName}" : $"{s.FirstName} {s.MiddleName.ToCharArray().First()}. {s.LastName}",
+                s.Email,
+                s.PhoneNumber
+            }).ToList();
 
             var itemService = new ItemService(pawnShopContext);
-            List<Item> item = itemService.GetAllItems();
-            dgvItems.DataSource = item;
+            var items = itemService.GetAllItems();
+            dgvItems.DataSource = items.Select(s => new
+            {
+                s.ItemID,
+                s.ItemName,
+                s.ItemType,
+                s.ItemValue,
+                s.PawnDate
+            }).ToList();
 
             var loanService = new LoanService(pawnShopContext);
-            List<Loan> loans = loanService.GetAllLoans();
-            dgvLoans.DataSource = loans;
+            var loans = loanService.GetAllLoans();
+            dgvLoans.DataSource = loans.Select(s => new
+            {
+                s.LoanID,
+                s.LoanAmount,
+                Customer = customerService.GetCustomerByID(s.CustomerID) is Customer customer ?
+                    (string.IsNullOrEmpty(customer.MiddleName) ? $"{customer.FirstName} {customer.LastName}" : $"{customer.FirstName} {customer.MiddleName.ToCharArray().First()}. {customer.LastName}") : string.Empty,
+                s.LoanDate,
+                s.RepaymentDate
+            }).ToList();
 
             var paymentService = new PaymentService(pawnShopContext);
-            List<Payment> payments = paymentService.GetAllPayments();
-            dgvPayments.DataSource = payments;
+            var payments = paymentService.GetAllPayments();
+            dgvPayments.DataSource = payments.Select(s => new
+            {
+                s.PaymentID,
+                s.PaymentAmount,
+                s.PaymentDate,
+            }).ToList();
         }
 
         private void btnCustomerCreate_Click(object sender, EventArgs e)

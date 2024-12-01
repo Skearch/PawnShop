@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Coding Project\\PawnShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|d:\\coding project\\pawnshop\\formloan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|solutionrelative:formloan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|d:\\coding project\\pawnshop\\formview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|solutionrelative:formview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|d:\\coding project\\pawnshop\\formloan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|solutionrelative:formloan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|d:\\coding project\\pawnshop\\formview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DF0110B7-FB4F-4D01-991D-F6CEC3C06733}|PawnShop.csproj|solutionrelative:formview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +18,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormView.cs [Design]",
+              "DocumentMoniker": "D:\\Coding Project\\PawnShop\\FormView.cs",
+              "RelativeDocumentMoniker": "FormView.cs",
+              "ToolTip": "D:\\Coding Project\\PawnShop\\FormView.cs [Design]",
+              "RelativeToolTip": "FormView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T17:03:53.299Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormView.cs",
+              "DocumentMoniker": "D:\\Coding Project\\PawnShop\\FormView.cs",
+              "RelativeDocumentMoniker": "FormView.cs",
+              "ToolTip": "D:\\Coding Project\\PawnShop\\FormView.cs",
+              "RelativeToolTip": "FormView.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAmwFcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T17:09:05.35Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
@@ -43,33 +70,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormLoan.cs [Design]",
-              "DocumentMoniker": "D:\\Coding Project\\PawnShop\\FormLoan.cs",
-              "RelativeDocumentMoniker": "FormLoan.cs",
-              "ToolTip": "D:\\Coding Project\\PawnShop\\FormLoan.cs [Design]",
-              "RelativeToolTip": "FormLoan.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:03:21.271Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormLoan.cs",
-              "DocumentMoniker": "D:\\Coding Project\\PawnShop\\FormLoan.cs",
-              "RelativeDocumentMoniker": "FormLoan.cs",
-              "ToolTip": "D:\\Coding Project\\PawnShop\\FormLoan.cs",
-              "RelativeToolTip": "FormLoan.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAADwv2cAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T15:04:53.008Z",
-              "IsPinned": true,
-              "EditorCaption": ""
             }
           ]
         }
